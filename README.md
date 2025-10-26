@@ -1,17 +1,31 @@
 # 🚗 License Plate Recognition (YOLOv8 + EasyOCR)
 
 ## 📌 Overview
-This project implements an **Automatic License Plate Recognition (ALPR)** system.  
-It uses **YOLOv8** for license plate detection and **EasyOCR** for text recognition.  
+This project implements an end-to-end Automatic License Plate Recognition (ALPR) pipeline.
 
-### What it does:
-- Detects plates in images and videos  
-- Reads the plate numbers using OCR  
-- Saves results as annotated images, cropped plates, and structured CSV logs  
+The system:
+- Detects license plates in images and videos using YOLOv8 (object detection)
+- Extracts the text on the plate using EasyOCR (optical character recognition)
+- Outputs both visual evidence (annotated frames, cropped plates) and structured data (CSV logs)
 
-### Tech Stack 
-- OpenCV  
-- Pandas  
+This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
+
+## 🔍 What the pipeline does
+- 🔎 Detects plates frame-by-frame
+- 🧠 Reads plate characters (e.g. "ABC1234")
+- 🗂 Logs each detection with timestamp, bounding box, and confidence score
+- 🖼 Saves:
+  - Annotated images/video with boxes + labels
+  - Cropped plate images
+  - A CSV audit trail of all detections
+
+## 🧰 Tech Stack
+- **YOLOv8 (Ultralytics)** – real-time license plate detection
+- **EasyOCR** – OCR for plate text extraction
+- **OpenCV** – image/video processing
+- **Pandas** – structured logging and analytics
+- **Python 3.9** – packaged to run in a conda environment
+
 
 ---
 
