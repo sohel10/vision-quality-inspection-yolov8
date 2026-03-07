@@ -1,14 +1,6 @@
 ![CI-CD](https://github.com/sohel10/object-detection/actions/workflows/cicd.yml/badge.svg)
 
 
-## 📌 Overview
-This project implements an end-to-end Automatic License Plate Recognition (ALPR) pipeline.
-
-The system:
-- Detects license plates in images and videos using YOLOv8 (object detection)
-- Extracts the text on the plate using EasyOCR (optical character recognition)
-- Outputs both visual evidence (annotated frames, cropped plates) and structured data (CSV logs)
-
 This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
 
 ## 🔍 What the pipeline does
@@ -20,30 +12,8 @@ This pattern is common in fleet analytics, gate access control, tolling, parking
   - Cropped plate images
   - A CSV audit trail of all detections
 
-## 🧰 Tech Stack
-- **YOLOv8 (Ultralytics)** – real-time license plate detection
-- **EasyOCR** – OCR for plate text extraction
-- **OpenCV** – image/video processing
-- **Pandas** – structured logging and analytics
-- **Python 3.9** – packaged to run in a conda environment
-
 
 # 🚗 Production Object Detection ML Platform (YOLOv8 + FastAPI)
-
-Production-style **computer vision inference platform** built using **YOLOv8 object detection**, **FastAPI microservices**, and **Docker-based deployment** with automated **CI/CD pipelines** and **AWS cloud infrastructure**.
-
-This project demonstrates how machine learning models transition from **research experiments into production-grade ML systems**.
-
-The platform includes:
-
-- Object detection inference API
-- Containerized deployment
-- CI/CD automation
-- Cloud deployment on AWS
-- Production ML system architecture
-
-
-
 
 # 🧰 Tech Stack
 
@@ -55,25 +25,24 @@ The platform includes:
 [![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-success)](https://github.com/features/actions)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-orange)](https://aws.amazon.com/)
 
----
 
-# 📌 Project Overview
+Production-style **computer vision inference platform** built using **YOLOv8 object detection**, **FastAPI microservices**, and **Docker-based deployment** with automated **CI/CD pipelines** and **AWS cloud infrastructure**.
 
-This project implements a **production-style computer vision inference system** using YOLOv8.
+## 📌 Overview
+This project implements an end-to-end Automatic License Plate Recognition (ALPR) pipeline.
 
-The system detects objects from images or video streams and exposes predictions through a **FastAPI inference API**.
+The system:
+- Detects license plates in images and videos using YOLOv8 (object detection)
+- Extracts the text on the plate using EasyOCR (optical character recognition)
+- Outputs both visual evidence (annotated frames, cropped plates) and structured data (CSV logs)
 
-Key capabilities include:
+The platform includes:
 
-- Real-time object detection
-- API-based inference service
+- Object detection inference API
 - Containerized deployment
-- Automated CI/CD pipeline
-- Cloud deployment architecture
-- Production-style ML system design
-
-The goal of this project is to demonstrate **end-to-end ML platform engineering**, combining **machine learning, software engineering, and DevOps practices**.
-
+- CI/CD automation
+- Cloud deployment on AWS
+- Production ML system architecture
 
 ## Monitoring Dashboard
 
