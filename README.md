@@ -14,6 +14,9 @@
 [![AWS](https://img.shields.io/badge/AWS-Cloud-orange)](https://aws.amazon.com/)
 
 This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
+## Object Detection Demo
+
+▶ [Watch Detection Demo](docs/videos/car_demo.mp4)
 
 ## 🔍 What the pipeline does
 - 🔎 Detects plates frame-by-frame
@@ -52,7 +55,9 @@ The platform includes:
 
 ### API Demo
 
-![API Demo](docs/figures/car_demo.mp4)
+## Object Detection Demo
+
+<video src="docs/videos/car_demo.mp4" width="700" controls></video>
 
 
 # 🏗 System Architecture
