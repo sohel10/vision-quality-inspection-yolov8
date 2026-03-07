@@ -1,5 +1,4 @@
-![CI-CD](https://github.com/sohel10/object-detection/actions/workflows/cicd.yml/badge.svg)
-
+[![CI-CD Pipeline](https://github.com/sohel10/object-detection/actions/workflows/cicd.yml/badge.svg)](https://github.com/sohel10/object-detection/actions/workflows/cicd.yml)
 
 # 🚗 Production-style computer vision inference platform built using YOLOv8 object detection and Docker-based deployment with automated CI/CD pipelines and AWS cloud infrastructure.
 
