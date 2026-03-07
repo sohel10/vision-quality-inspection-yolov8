@@ -9,6 +9,8 @@ import time
 from pathlib import Path
 from ultralytics import YOLO
 
+from prometheus_fastapi_instrumentator import Instrumentator
+
 # =========================
 # App
 # =========================
@@ -22,6 +24,12 @@ app.state.build_id = str(int(time.time()))
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+
+# =========================
+# Monitoring
+# =========================
+
+Instrumentator().instrument(app).expose(app)
 
 # =========================
 # Config
@@ -46,7 +54,6 @@ def load_model():
 
     print("✅ YOLO model loaded")
 
-
 # =========================
 # Health Check
 # =========================
@@ -54,7 +61,6 @@ def load_model():
 @app.get("/health")
 def health():
     return {"status": "healthy"}
-
 
 # =========================
 # Detection Endpoint
@@ -89,7 +95,6 @@ async def predict(file: UploadFile = File(...)):
         "detections": detections,
         "count": len(detections)
     }
-
 
 # =========================
 # Web UI

@@ -52,7 +52,7 @@ The platform includes:
 
 ### API Demo
 
-![API Demo](docs/figures/api_demo.png)
+![API Demo](docs/figures/car_demo.mp4)
 
 
 # 🏗 System Architecture
