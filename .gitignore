@@ -17,6 +17,8 @@ datasets/
 train/
 test/
 valid/
+mlruns/
+runs/
 
 # Ignore cache & temp
 __pycache__/
@@ -26,3 +28,44 @@ __pycache__/
 
 # Ignore BFG reports
 ..bfg-report/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML training outputs
+runs/
+mlruns/
+*.pt
+*.pth
+
+# Logs
+*.log
+
+# Database
+mlflow.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.cache
+
+# Docker
+docker-compose.override.yml

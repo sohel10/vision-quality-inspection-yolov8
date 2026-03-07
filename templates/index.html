@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Object Detection</title>
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.container {
+    width: 400px;
+    margin: auto;
+}
+
+button {
+    padding: 12px;
+    width: 100%;
+    background: #3b82f6;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🚗 YOLO Object Detection</h1>
+
+<div class="container">
+
+<form id="uploadForm">
+
+<input type="file" id="fileInput">
+
+<button type="submit">Detect Objects</button>
+
+</form>
+
+<pre id="result"></pre>
+
+</div>
+
+<script>
+
+const form = document.getElementById("uploadForm");
+
+form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const fileInput = document.getElementById("fileInput");
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    const response = await fetch("/predict", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+
+    document.getElementById("result").innerText =
+        JSON.stringify(data, null, 2);
+
+});
+
+</script>
+
+</body>
+</html>
