@@ -28,7 +28,7 @@ jobs:
           pip install pytest
 
       - name: Run Tests
-        run: pytest
+        run: pytest tests
 
 
   CD:

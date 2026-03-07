@@ -110,3 +110,7 @@ def home(request: Request):
             "build_id": app.state.build_id
         }
     )
+
+@app.get("/")
+def health():
+    return {"status": "ok"}

@@ -40,7 +40,12 @@ __pycache__/
 .venv
 env/
 venv/
-
+runs/
+train/
+valid/
+*.pt
+*.cache
+YOLOv8/
 # Jupyter
 .ipynb_checkpoints/
 
