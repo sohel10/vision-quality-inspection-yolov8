@@ -16,7 +16,9 @@
 This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
 ## Object Detection Demo
 
-▶ [Watch Detection Demo](docs/videos/car_demo.mp4)
+## License Plate Detection Demo
+
+<video src="docs/videos/car_demo.mp4" width="700" controls></video>
 
 ## 🔍 What the pipeline does
 - 🔎 Detects plates frame-by-frame
