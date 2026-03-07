@@ -1,19 +1,7 @@
 ![CI-CD](https://github.com/sohel10/object-detection/actions/workflows/cicd.yml/badge.svg)
 
 
-This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
-
-## 🔍 What the pipeline does
-- 🔎 Detects plates frame-by-frame
-- 🧠 Reads plate characters (e.g. "ABC1234")
-- 🗂 Logs each detection with timestamp, bounding box, and confidence score
-- 🖼 Saves:
-  - Annotated images/video with boxes + labels
-  - Cropped plate images
-  - A CSV audit trail of all detections
-
-
-# 🚗 Production Object Detection ML Platform (YOLOv8 + FastAPI)
+# 🚗 Production-style **computer vision inference platform** built using **YOLOv8 object detection**, **FastAPI microservices**, and **Docker-based deployment** with automated **CI/CD pipelines** and **AWS cloud infrastructure**.
 
 # 🧰 Tech Stack
 
@@ -25,8 +13,16 @@ This pattern is common in fleet analytics, gate access control, tolling, parking
 [![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-success)](https://github.com/features/actions)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-orange)](https://aws.amazon.com/)
 
+This pattern is common in fleet analytics, gate access control, tolling, parking enforcement, and traffic safety.
 
-Production-style **computer vision inference platform** built using **YOLOv8 object detection**, **FastAPI microservices**, and **Docker-based deployment** with automated **CI/CD pipelines** and **AWS cloud infrastructure**.
+## 🔍 What the pipeline does
+- 🔎 Detects plates frame-by-frame
+- 🧠 Reads plate characters (e.g. "ABC1234")
+- 🗂 Logs each detection with timestamp, bounding box, and confidence score
+- 🖼 Saves:
+  - Annotated images/video with boxes + labels
+  - Cropped plate images
+  - A CSV audit trail of all detections
 
 ## 📌 Overview
 This project implements an end-to-end Automatic License Plate Recognition (ALPR) pipeline.
