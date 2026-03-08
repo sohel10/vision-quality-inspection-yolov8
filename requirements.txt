@@ -6,3 +6,4 @@ easyocr
 opencv-python-headless
 pandas
 Pillow
+prometheus-fastapi-instrumentator
