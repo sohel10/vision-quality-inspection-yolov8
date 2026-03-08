@@ -1,3 +1,5 @@
+fastapi
+uvicorn[standard]
 streamlit
 ultralytics==8.3.0
 easyocr
