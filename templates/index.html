@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Object Detection</title>
+<title>YOLO Object Detection</title>
+
 <style>
+
 body {
     font-family: Arial;
     background: #0f172a;
     color: white;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .container {
-    width: 400px;
+    width: 500px;
     margin: auto;
 }
 
@@ -31,6 +33,12 @@ input {
     padding: 10px;
     margin-bottom: 10px;
 }
+
+canvas {
+    margin-top:20px;
+    max-width:100%;
+}
+
 </style>
 </head>
 
@@ -42,13 +50,16 @@ input {
 
 <form id="uploadForm">
 
-<input type="file" id="fileInput">
+<input type="file" id="fileInput" required>
 
 <button type="submit">Detect Objects</button>
 
 </form>
 
-<pre id="result"></pre>
+<br>
+
+<img id="preview" style="max-width:100%; display:none;">
+<canvas id="canvas"></canvas>
 
 </div>
 
@@ -60,10 +71,10 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const fileInput = document.getElementById("fileInput");
+    const file = document.getElementById("fileInput").files[0];
 
     const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+    formData.append("file", file);
 
     const response = await fetch("/predict", {
         method: "POST",
@@ -72,8 +83,42 @@ form.addEventListener("submit", async (e) => {
 
     const data = await response.json();
 
-    document.getElementById("result").innerText =
-        JSON.stringify(data, null, 2);
+    const img = document.getElementById("preview");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        ctx.drawImage(img,0,0);
+
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 3;
+        ctx.font = "18px Arial";
+        ctx.fillStyle = "red";
+
+        data.detections.forEach(det => {
+
+            ctx.strokeRect(
+                det.x1,
+                det.y1,
+                det.x2 - det.x1,
+                det.y2 - det.y1
+            );
+
+            ctx.fillText(
+                "Plate " + det.confidence.toFixed(2),
+                det.x1,
+                det.y1 - 5
+            );
+
+        });
+
+    }
 
 });
 

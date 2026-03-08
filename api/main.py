@@ -8,12 +8,19 @@ import cv2
 import time
 from pathlib import Path
 from ultralytics import YOLO
-
+import logging
 from prometheus_fastapi_instrumentator import Instrumentator
 
 # =========================
 # App
 # =========================
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Object Detection API",
@@ -52,7 +59,7 @@ def load_model():
 
     model = YOLO(str(MODEL_PATH))
 
-    print("✅ YOLO model loaded")
+    logger.info("YOLO model loaded")
 
 # =========================
 # Health Check
@@ -68,6 +75,8 @@ def health():
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
+
+    logger.info("Prediction request received")
 
     if file.content_type not in ["image/jpeg", "image/png"]:
         raise HTTPException(status_code=400, detail="Invalid image type")
@@ -91,11 +100,12 @@ async def predict(file: UploadFile = File(...)):
             "class": int(box.cls)
         })
 
+    logger.info(f"Detections found: {len(detections)}")
+
     return {
         "detections": detections,
         "count": len(detections)
     }
-
 # =========================
 # Web UI
 # =========================
@@ -111,6 +121,3 @@ def home(request: Request):
         }
     )
 
-@app.get("/")
-def health():
-    return {"status": "ok"}
